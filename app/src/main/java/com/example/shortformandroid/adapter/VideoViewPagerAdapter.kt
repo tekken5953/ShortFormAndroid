@@ -38,6 +38,7 @@ class VideoViewPagerAdapter(
                 val uri = Uri.parse(videoPath)
                 videoView.setVideoURI(uri)
 
+
 //                // Controller
 //                val mediaController = MediaController(context)
 //                videoView.setMediaController(mediaController)

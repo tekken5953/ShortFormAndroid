@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="regular">
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/spoqa_hansansneo_regular</item>
+    </style>
+
+    <style name="medium">
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/spoqa_hansansneo_medium</item>
+    </style>
+
+    <style name="bold">
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/spoqa_hansansneo_bold</item>
+    </style>
+    
+</resources>

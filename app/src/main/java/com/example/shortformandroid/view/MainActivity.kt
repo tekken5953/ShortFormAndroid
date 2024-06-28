@@ -93,19 +93,19 @@ class MainActivity : AppCompatActivity() {
                     else binding.mainLike.setImageDrawable(getR(R.drawable.like_empty))
                 },300)
 
-//                binding.mainFollow.setOnClickListener {
-//                    binding.mainFollow.apply {
-//                        if (model.) {
-//                            this.text = "Following"
-//                            this.setTextColor(getColor(R.color.main_blue))
-//                            this.setBackgroundResource(R.drawable.follow_enable_bg)
-//                        } else {
-//                            this.text = "Follow"
-//                            this.setTextColor(getColor(R.color.main_white))
-//                            this.setBackgroundResource(R.drawable.follow_disable_bg)
-//                        }
-//                    }
-//                }
+                binding.mainFollow.setOnClickListener {
+                    binding.mainFollow.apply {
+                        if (this.isActivated) {
+                            this.text = "Follow"
+                            this.setTextColor(getColor(R.color.main_white))
+                        } else {
+                            this.text = "Following"
+                            this.setTextColor(getColor(R.color.main_blue))
+                        }
+
+                        this.isActivated = !this.isActivated
+                    }
+                }
             }
         })
     }
@@ -115,5 +115,5 @@ class MainActivity : AppCompatActivity() {
     private fun calcLikeAndComment(value: Int): String =
         if (value > 999) "${parseDoubleToDecimal((value / 1000).toFloat(),1)}K" else value.toString()
 
-    private fun parseDoubleToDecimal(float: Float, digit: Int): String = String.format("%.${digit}f", float)
+    private fun parseDoubleToDecimal(float: Float, @Suppress("SameParameterValue") digit: Int): String = String.format("%.${digit}f", float)
 }

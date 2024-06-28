@@ -76,7 +76,7 @@
                 style="@style/regular"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
-                android:background="@drawable/follow_disable_bg"
+                android:background="@drawable/follow_bg"
                 android:text="Follow"
                 android:textSize="12sp" />
         </TableRow>

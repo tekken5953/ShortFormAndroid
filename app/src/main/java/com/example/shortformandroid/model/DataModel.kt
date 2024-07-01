@@ -11,4 +11,15 @@ object DataModel {
         var commentValue: Int,
         val videoPath: Int?
     )
+
+    data class Feed(
+        val userName: String,
+        val userProfile: Int?,
+        val feedImg: Int?
+    )
+
+    data class Story(
+        val userProfile: Int,
+        val userName: String
+    )
 }

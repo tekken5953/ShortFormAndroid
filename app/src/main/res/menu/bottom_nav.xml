@@ -11,14 +11,14 @@
         android:icon="@drawable/nav_search"/>
 
     <item
+        android:id="@+id/bottom_add"
+        android:title="@null"
+        android:icon="@drawable/nav_square"/>
+
+    <item
         android:id="@+id/bottom_reels"
         android:title="@null"
         android:icon="@drawable/nav_reels"/>
-
-    <item
-        android:id="@+id/bottom_store"
-        android:title="@null"
-        android:icon="@drawable/nav_store"/>
 
     <item
         android:id="@+id/bottom_profile"

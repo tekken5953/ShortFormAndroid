@@ -3,6 +3,10 @@ package com.example.shortformandroid.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,9 +46,13 @@ class HomeFeedAdapter(private val context: Context, list: ArrayList<DataModel.Fe
         private val userName: TextView = itemView.findViewById(R.id.list_item_feed_user_name)
         private val userProfile: ImageView = itemView.findViewById(R.id.list_item_feed_profile)
         private val img: ImageView = itemView.findViewById(R.id.list_item_feed_img)
+        private val commentPreview: TextView = itemView.findViewById(R.id.list_item_feed_comment_preview)
+        private val commentViewAll: TextView = itemView.findViewById(R.id.list_item_comment_all_view)
 
         fun bind(dao: DataModel.Feed) {
             userName.text = dao.userName
+            commentPreview.text = getSpan()
+
             Glide.with(context).load(dao.userProfile).into(userProfile)
             Glide.with(context).load(dao.feedImg).into(img)
 
@@ -67,6 +75,14 @@ class HomeFeedAdapter(private val context: Context, list: ArrayList<DataModel.Fe
                     }
                 }
             }
+        }
+
+        private fun getSpan(): SpannableStringBuilder {
+            val text = "User1  wow! I love this post"
+            val span = SpannableStringBuilder(text)
+            span.setSpan(StyleSpan(Typeface.BOLD), 0, "User1".length + 1 , Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+            return span
         }
     }
 }

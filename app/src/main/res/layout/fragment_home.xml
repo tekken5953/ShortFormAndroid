@@ -67,14 +67,16 @@
         android:id="@+id/home_feed_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical"
         android:overScrollMode="ifContentScrolls"
         android:scrollbars="none"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_story_rv"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/list_item_feed_rv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

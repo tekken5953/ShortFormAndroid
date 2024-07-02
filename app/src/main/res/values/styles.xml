@@ -32,6 +32,4 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:background">@color/main_view</item>
     </style>
-
-
 </resources>

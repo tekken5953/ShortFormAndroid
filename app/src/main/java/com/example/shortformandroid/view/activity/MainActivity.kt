@@ -27,7 +27,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.bottom_reels -> {
                     changeFragment(ReelsFragment())
                 }
+                R.id.bottom_add -> {
 
+                }
+                R.id.bottom_search -> {
+
+                }
+                R.id.bottom_profile -> {
+
+                }
                 else -> { return@setOnItemSelectedListener false }
             }
 
@@ -35,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun changeFragment(frag: Fragment) {
+    private fun changeFragment(frag: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.main_frame, frag)
         if (!supportFragmentManager.isStateSaved) transaction.commit()

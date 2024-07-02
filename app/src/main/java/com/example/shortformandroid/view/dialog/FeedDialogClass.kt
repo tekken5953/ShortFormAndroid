@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shortformandroid.R
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
  * @since : 2023-03-28 오전 11:15
  **/
 
-class FeedDialogClass(context: Context,private val index: Int?) {
+class FeedDialogClass(context: Context, private val index: Int?,private val title: String) {
     private var builder: AlertDialog.Builder =
         AlertDialog.Builder(context, R.style.AlertDialog)
     private val view by lazy { LayoutInflater.from(context).inflate(R.layout.dialog_feed,null) }
@@ -51,21 +52,24 @@ class FeedDialogClass(context: Context,private val index: Int?) {
         MainScope().launch {
             val rv =  view.findViewById<RecyclerView>(R.id.dialog_feed_rv)
             rv.adapter = feedAdapter
-            addFeed(DataModel.Feed("user1", R.drawable.profile,R.drawable.feed1))
+            addFeed(DataModel.Feed("user1", R.drawable.profile1,R.drawable.feed1))
             addFeed(DataModel.Feed("user2", R.drawable.profile2,R.drawable.feed2))
             addFeed(DataModel.Feed("user3", R.drawable.profile3,R.drawable.feed3))
             addFeed(DataModel.Feed("user4", R.drawable.profile4,R.drawable.feed4))
-            addFeed(DataModel.Feed("user5", R.drawable.profile,R.drawable.feed5))
+            addFeed(DataModel.Feed("user5", R.drawable.profile1,R.drawable.feed5))
             addFeed(DataModel.Feed("user6", R.drawable.profile2,R.drawable.feed6))
             addFeed(DataModel.Feed("user7", R.drawable.profile3,R.drawable.feed7))
             addFeed(DataModel.Feed("user8", R.drawable.profile4,R.drawable.feed8))
-            addFeed(DataModel.Feed("user9", R.drawable.profile,R.drawable.feed9))
+            addFeed(DataModel.Feed("user9", R.drawable.profile1,R.drawable.feed9))
 
             kotlin.runCatching { index?.let { rv.smoothScrollToPosition(it) } }
                 .exceptionOrNull()?.stackTraceToString()
 
-            val cancel: ImageView = view.findViewById(R.id.dialog_feed_back)
-            cancel.setOnClickListener { dismiss() }
+            val cancelIv: ImageView = view.findViewById(R.id.dialog_feed_back)
+            cancelIv.setOnClickListener { dismiss() }
+
+            val titleTv: TextView = view.findViewById(R.id.dialog_feed_title)
+            titleTv.text = title
         }
 
         return this

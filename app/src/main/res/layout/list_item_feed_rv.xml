@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp">
+    android:layout_marginTop="14dp"
+    android:layout_marginBottom="14dp">
 
     <RelativeLayout
         android:id="@+id/list_item_feed_user_tr"
@@ -93,5 +94,25 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/bookmark"
         app:tint="@color/main_text" />
+
+    <TextView
+        android:id="@+id/list_item_feed_comment_preview"
+        style="@style/regular"
+        android:textSize="14sp"
+        android:visibility="visible"
+        android:layout_below="@+id/list_item_feed_bookmark"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/list_item_comment_all_view"
+        style="@style/regular"
+        android:textSize="14sp"
+        android:layout_marginTop="7dp"
+        android:textColor="@color/main_gray"
+        android:text="View All Comments"
+        android:visibility="visible"
+        android:layout_below="@+id/list_item_feed_comment_preview"
+        android:layout_alignStart="@+id/list_item_feed_comment_preview"/>
 
 </RelativeLayout>

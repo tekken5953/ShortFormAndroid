@@ -31,7 +31,7 @@ class ReelsFragment : Fragment() {
     private val videoAdapter by lazy { VideoViewPagerAdapter(requireActivity(), videoList) }
 
     private val videoPathArray = listOf(R.raw.v1,R.raw.v5,R.raw.v6,R.raw.v7,R.raw.v8,R.raw.v1,R.raw.v5,R.raw.v6)
-    private val profileArray = listOf(R.drawable.profile,R.drawable.profile2,R.drawable.profile3,R.drawable.profile4)
+    private val profileArray = listOf(R.drawable.profile1,R.drawable.profile2,R.drawable.profile3,R.drawable.profile4)
 
     private var isLoading = false
 

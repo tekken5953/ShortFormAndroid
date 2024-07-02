@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/add_square_fill" android:state_checked="true"/>
+    <item android:drawable="@drawable/add_square" android:state_checked="false"/>
+</selector>

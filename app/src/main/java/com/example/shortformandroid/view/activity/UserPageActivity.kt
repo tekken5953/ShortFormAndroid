@@ -46,20 +46,19 @@ class UserPageActivity : AppCompatActivity() {
 
         userFeedAdapter.setOnItemClickListener(object : OnAdapterItemSingleClick() {
             override fun onSingleClick(v: View?, position: Int) {
-                FeedDialogClass(this@UserPageActivity, position).initAdapter().show(true)
+                FeedDialogClass(this@UserPageActivity, position, "Posts").initAdapter().show(true)
             }
         })
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun addGridArray(count: Int) {
+        userFeedList.clear()
+
         val feedArray = arrayOf(R.drawable.feed1,R.drawable.feed2,R.drawable.feed3,R.drawable.feed4,
             R.drawable.feed5,R.drawable.feed6,R.drawable.feed7,R.drawable.feed8,R.drawable.feed9)
 
-        userFeedList.clear()
-        repeat(count) {
-            addGridFeed(feedArray.random())
-        }
+        repeat(count) { addGridFeed(feedArray.random()) }
 
         userFeedAdapter.notifyDataSetChanged()
     }

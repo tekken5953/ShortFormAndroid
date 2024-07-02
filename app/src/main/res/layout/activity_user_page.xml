@@ -206,6 +206,7 @@
         app:tabIconTint="@color/main_text"
         app:tabIndicatorColor="@color/main_text"
         app:tabIndicatorHeight="3dp"
+        android:contentDescription="user_tab_layout"
         app:tabIndicatorFullWidth="true"
         app:tabRippleColor="@null">
 
@@ -213,23 +214,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/grid"
+            android:contentDescription="tab_grid"
             android:text=""/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/nav_reels"
+            android:contentDescription="tab_reels"
             android:text=""/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="tab_play"
             android:icon="@drawable/play"
             android:text=""/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="tab_person"
             android:icon="@drawable/person"
             android:text=""/>
     </com.google.android.material.tabs.TabLayout>
@@ -238,13 +243,14 @@
         android:id="@+id/user_grid_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:contentDescription="user_grid_rv"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_tab_layout"
         app:spanCount="3"
-        android:orientation="vertical"
-        android:scrollbars="none"
-        android:overScrollMode="never"
-        tools:listitem="@layout/list_item_user_feed_rv"/>
+        tools:listitem="@layout/list_item_user_feed_rv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

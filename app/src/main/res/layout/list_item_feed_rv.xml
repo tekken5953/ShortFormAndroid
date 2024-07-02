@@ -115,4 +115,14 @@
         android:layout_below="@+id/list_item_feed_comment_preview"
         android:layout_alignStart="@+id/list_item_feed_comment_preview"/>
 
+    <TextView
+        android:id="@+id/list_item_feed_date"
+        style="@style/regular"
+        android:text="4days ago"
+        android:textColor="@color/main_gray"
+        android:layout_marginTop="7dp"
+        android:textSize="13sp"
+        android:layout_below="@+id/list_item_comment_all_view"
+        android:layout_alignStart="@+id/list_item_comment_all_view"/>
+
 </RelativeLayout>

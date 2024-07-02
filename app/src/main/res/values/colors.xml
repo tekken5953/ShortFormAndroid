@@ -10,10 +10,10 @@
 
     <color name="ripple_white">#E4FFFFFF</color>
 
-    <color name="main_text">#2b2a31</color>
+    <color name="main_text">#000000</color>
     <color name="main_view">#fefdff</color>
 
-    <color name="main_black">#2b2a31</color>
+    <color name="main_black">#000000</color>
     <color name="main_white">#fefdff</color>
     <color name="main_blue">#3FAEDA</color>
     <color name="main_gray">#8F939C</color>

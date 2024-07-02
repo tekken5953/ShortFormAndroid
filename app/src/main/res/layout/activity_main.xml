@@ -25,4 +25,5 @@
         app:itemPaddingTop="18dp"
         android:animateLayoutChanges="false"
         app:itemRippleColor="@null"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

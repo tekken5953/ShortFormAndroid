@@ -15,27 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if (savedInstanceState == null)  {
-            changeFragment(HomeFragment())
-        }
+
+        if (savedInstanceState == null) changeFragment(HomeFragment())
 
         binding.mainBottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.bottom_home -> {
-                    changeFragment(HomeFragment())
-                }
-                R.id.bottom_reels -> {
-                    changeFragment(ReelsFragment())
-                }
-                R.id.bottom_add -> {
-
-                }
-                R.id.bottom_search -> {
-
-                }
-                R.id.bottom_profile -> {
-
-                }
+                R.id.bottom_home -> { changeFragment(HomeFragment()) }
+                R.id.bottom_reels -> { changeFragment(ReelsFragment()) }
+                R.id.bottom_add -> {}
+                R.id.bottom_search -> {}
+                R.id.bottom_profile -> {}
                 else -> { return@setOnItemSelectedListener false }
             }
 

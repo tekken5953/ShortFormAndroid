@@ -29,19 +29,20 @@ class UserPageActivity : AppCompatActivity() {
 
         binding.userBack.setOnClickListener { finish() }
 
-        addGridArray(12)
+        addGridArray(24)
 
         // 탭 선택 리스너 설정
         binding.userTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                addGridArray(12)
+                when(tab.position) {
+                    0 -> addGridArray(24)
+                    1 -> addGridArray(5)
+                    2 -> addGridArray(8)
+                    3 -> addGridArray(12)
+                }
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab) {
-            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
         userFeedAdapter.setOnItemClickListener(object : OnAdapterItemSingleClick() {
@@ -63,8 +64,6 @@ class UserPageActivity : AppCompatActivity() {
         userFeedAdapter.notifyDataSetChanged()
     }
 
-    private fun addGridFeed(res: Int?) {
-        val userName = intent.extras?.getString("user_name")
-        userFeedList.add(DataModel.Feed(userName ?: "Unknown", null, res))
-    }
+    private fun addGridFeed(res: Int?) =
+        userFeedList.add(DataModel.Feed(intent.extras?.getString("user_name") ?: "Unknown", null, res))
 }

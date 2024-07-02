@@ -56,25 +56,16 @@ class HomeFeedAdapter(private val context: Context, list: ArrayList<DataModel.Fe
             Glide.with(context).load(dao.userProfile).into(userProfile)
             Glide.with(context).load(dao.feedImg).into(img)
 
-            userProfile.setOnClickListener {
-                goUserPage(dao.userName)
-            }
-
-            userName.setOnClickListener {
-                goUserPage(dao.userName)
-            }
+            userProfile.setOnClickListener { goUserPage(dao.userName) }
+            userName.setOnClickListener { goUserPage(dao.userName) }
         }
 
-
         private fun goUserPage(userName: String?) {
-            if (context is Activity) {
-                if (context != UserPageActivity()) {
-                    Intent(context, UserPageActivity::class.java).apply {
-                        putExtra("user_name", userName)
-                        context.startActivity(this)
-                    }
+            if (context is Activity && context != UserPageActivity())
+                Intent(context, UserPageActivity::class.java).apply {
+                    putExtra("user_name", userName)
+                    context.startActivity(this)
                 }
-            }
         }
 
         private fun getSpan(): SpannableStringBuilder {

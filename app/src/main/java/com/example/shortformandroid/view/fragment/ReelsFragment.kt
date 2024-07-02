@@ -46,16 +46,14 @@ class ReelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentReelsBinding.inflate(inflater, container, false)
+        binding.mainVideoViewPager.adapter = videoAdapter
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.mainVideoViewPager.adapter = videoAdapter
-
-        binding.mainVideoViewPager.adapter = videoAdapter
-
-        loadMore(-1)
+        loadFirst()
 
         binding.mainVideoViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageScrolled(
@@ -135,6 +133,16 @@ class ReelsFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun loadFirst() {
+        for (i in 0 until(5)) {
+            videoList.add(DataModel.Video(profileArray.random(), false, "User Name $i",
+                "Video Name $i", "Video Info $i", Random.nextInt(0, 20000),
+                Random.nextInt(0, 2000), videoPathArray.random()))
+
+            videoAdapter.notifyItemInserted(i)
+        }
     }
 
     private fun loadMore(lastIndex: Int) {

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.UserPageActivity">
+
+    <ImageView
+        android:id="@+id/user_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="4dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/main_text" />
+
+    <TextView
+        android:id="@+id/user_user_name"
+        style="@style/bold"
+        android:text="Andrew"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/user_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_back" />
+
+    <ImageView
+        android:id="@+id/user_more_horiz"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/more_horiz"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/user_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_back" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_profile_card"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="#40000000"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_back">
+
+        <ImageView
+            android:id="@+id/user_profile_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/profile2" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/user_post_value"
+        style="@style/medium"
+        android:layout_marginBottom="5dp"
+        android:text="174"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/user_post_title"
+        app:layout_constraintEnd_toEndOf="@+id/user_post_title"
+        app:layout_constraintStart_toStartOf="@+id/user_post_title" />
+
+    <TextView
+        android:id="@+id/user_post_title"
+        style="@style/medium"
+        android:layout_marginTop="5dp"
+        android:text="Posts"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profile_card"
+        app:layout_constraintEnd_toStartOf="@+id/user_followers_title"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_card"
+        app:layout_constraintTop_toTopOf="@+id/user_profile_card" />
+
+    <TextView
+        android:id="@+id/user_followers_value"
+        style="@style/medium"
+        android:layout_marginBottom="5dp"
+        android:text="772K"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/user_followers_title"
+        app:layout_constraintEnd_toEndOf="@+id/user_followers_title"
+        app:layout_constraintStart_toStartOf="@+id/user_followers_title" />
+
+    <TextView
+        android:id="@+id/user_followers_title"
+        style="@style/medium"
+        android:layout_marginTop="5dp"
+        android:text="Followers"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profile_card"
+        app:layout_constraintEnd_toStartOf="@+id/user_following_title"
+        app:layout_constraintStart_toEndOf="@+id/user_post_title"
+        app:layout_constraintTop_toTopOf="@+id/user_profile_card" />
+
+    <TextView
+        android:id="@+id/user_following_value"
+        style="@style/medium"
+        android:layout_marginBottom="5dp"
+        android:text="714"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/user_following_title"
+        app:layout_constraintEnd_toEndOf="@+id/user_following_title"
+        app:layout_constraintStart_toStartOf="@+id/user_following_title" />
+
+    <TextView
+        android:id="@+id/user_following_title"
+        style="@style/medium"
+        android:layout_marginTop="5dp"
+        android:text="Following"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profile_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_followers_title"
+        app:layout_constraintTop_toTopOf="@+id/user_profile_card" />
+
+    <TextView
+        android:id="@+id/user_full_name"
+        style="@style/medium"
+        android:layout_marginTop="24dp"
+        android:text="Andrew Queo"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/user_profile_card"
+        app:layout_constraintTop_toBottomOf="@+id/user_profile_card" />
+
+    <TextView
+        android:id="@+id/user_subject"
+        style="@style/regular"
+        android:layout_marginTop="5dp"
+        android:text="Artist"
+        android:textColor="@color/main_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/user_full_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_full_name" />
+
+    <TextView
+        android:id="@+id/user_job"
+        style="@style/regular"
+        android:layout_marginTop="5dp"
+        android:text="DESIGNER"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/user_full_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_subject" />
+
+    <TableRow
+        android:id="@+id/user_btn_tr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/user_job">
+
+        <TextView
+            android:id="@+id/user_follow_btn"
+            style="@style/medium"
+            android:layout_weight="0.3"
+            android:background="@drawable/user_event_bg"
+            android:text="Follow"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/user_message_btn"
+            style="@style/medium"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/user_event_bg"
+            android:text="Message"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/user_Email_btn"
+            style="@style/medium"
+            android:layout_weight="0.3"
+            android:background="@drawable/user_event_bg"
+            android:text="Email"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/user_arrow_btn"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0.1"
+            android:padding="5dp"
+            android:background="@drawable/user_arrow_bottom_bg"
+            android:src="@drawable/arrow_bottom"
+            app:tint="@color/main_text" />
+    </TableRow>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/user_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/user_btn_tr"
+        app:tabIconTint="@color/main_text"
+        app:tabIndicatorColor="@color/main_text"
+        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorFullWidth="true"
+        app:tabRippleColor="@null">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/grid"
+            android:text=""/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/nav_reels"
+            android:text=""/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/play"
+            android:text=""/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/person"
+            android:text=""/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_grid_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_tab_layout"
+        app:spanCount="3"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        tools:listitem="@layout/list_item_user_feed_rv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

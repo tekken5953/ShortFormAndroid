@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.ReelsFragment">
+    tools:context=".view.fragment.ReelsFragment"
+    android:background="@color/main_black">
 
     <View
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|top"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="16dp">
         <ImageView
             android:id="@+id/main_search"
             android:layout_width="30dp"

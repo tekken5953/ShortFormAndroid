@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/dialog_feed_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/arrow_back_long"
+        app:tint="@color/main_text"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/dialog_feed_title"
+        style="@style/bold"
+        android:textSize="18sp"
+        android:text="Posts"
+        android:layout_toEndOf="@+id/dialog_feed_back"
+        android:layout_alignTop="@+id/dialog_feed_back"
+        android:layout_alignBottom="@+id/dialog_feed_back"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/dialog_feed_follow"
+        android:text="Follow"
+        style="@style/medium"
+        android:textColor="@color/deep_blue"
+        android:textSize="16sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/dialog_feed_back"
+        android:layout_alignBottom="@+id/dialog_feed_back"
+        android:layout_marginEnd="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialog_feed_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/dialog_feed_back"
+        android:layout_marginTop="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/list_item_feed_rv"/>
+
+</RelativeLayout>

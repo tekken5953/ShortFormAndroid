@@ -23,5 +23,15 @@
         <item name="android:gravity">center</item>
         <item name="fontFamily">@font/spoqa_hansansneo_bold</item>
     </style>
-    
+
+    <style name="AlertDialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@color/main_view</item>
+    </style>
+
+
 </resources>

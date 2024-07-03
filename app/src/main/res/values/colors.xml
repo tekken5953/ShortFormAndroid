@@ -20,4 +20,8 @@
     <color name="main_green">#0EC63F</color>
 
     <color name="deep_blue">#1776BC</color>
+    <color name="sub_black">#fefdff</color>
+    <color name="sub_text">#838791</color>
+
+    <color name="post_btn_solid">#C1E9FF</color>
 </resources>

@@ -2,4 +2,5 @@
 <resources>
     <color name="main_text">#fefdff</color>
     <color name="main_view">#000000</color>
+    <color name="sub_black">#25292F</color>
 </resources>

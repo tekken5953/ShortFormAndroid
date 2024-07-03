@@ -22,4 +22,15 @@ object DataModel {
         val userProfile: Int,
         val userName: String
     )
+
+    data class People(
+        val img: Int?,
+        val name: String,
+        val content: String?
+    )
+
+    data class Post(
+        val img: Int?,
+        var isSelected: Boolean = false
+    )
 }

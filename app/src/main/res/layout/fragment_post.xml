@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sub_black">
+
+    <RelativeLayout
+        android:id="@+id/post_top_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sub_black"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/post_top_title"
+            style="@style/regular"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Select the photos and videos\nyou want to allow access to this app" />
+
+        <TableRow
+            android:id="@+id/post_top_btn_tr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/post_top_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/post_top_photo_btn"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/post_btn_bg"
+                android:text="Photo"
+                android:textAllCaps="false"
+                android:textColor="@drawable/post_btn_text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/post_top_album_btn"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/post_btn_bg"
+                android:text="Album"
+                android:textAllCaps="false"
+                android:textColor="@drawable/post_btn_text_color" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/post_recent_title"
+            style="@style/regular"
+            android:layout_below="@+id/post_top_btn_tr"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Recent"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post_photo_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/post_do_not_allow_bt"
+        app:layout_constraintTop_toBottomOf="@+id/post_top_relative"
+        app:spanCount="3"
+        tools:listitem="@layout/list_item_post_photo_rv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/post_do_not_allow_bt"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/post_btn_bg"
+        android:text="Don't Allow"
+        android:textAllCaps="false"
+        android:textColor="@drawable/post_btn_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

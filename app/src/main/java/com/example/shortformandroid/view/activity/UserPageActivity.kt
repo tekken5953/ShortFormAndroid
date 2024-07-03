@@ -26,7 +26,6 @@ class UserPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.userGridRv.adapter = userFeedAdapter
-
         binding.userBack.setOnClickListener { finish() }
 
         addGridArray(24)

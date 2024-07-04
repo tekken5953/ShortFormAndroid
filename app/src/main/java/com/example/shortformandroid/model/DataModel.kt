@@ -33,4 +33,9 @@ object DataModel {
         val img: Int?,
         var isSelected: Boolean = false
     )
+
+    data class SearchFeed(
+        val img: Int?,
+        val isReels: Boolean
+    )
 }

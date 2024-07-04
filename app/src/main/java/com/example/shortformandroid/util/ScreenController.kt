@@ -31,16 +31,17 @@ class ScreenController(private val activity: Activity) {
     }
 
     fun hideNavBarOnly(activity: Activity) {
-        val window = activity.window
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.setDecorFitsSystemWindows(true)
-                window.insetsController?.let {
+            activity.window.apply {
+                setDecorFitsSystemWindows(true)
+                insetsController?.let {
                     it.hide(WindowInsets.Type.navigationBars())
                     it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                }
             }
         } else {
             @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility =
+            activity.window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                         View.SYSTEM_UI_FLAG_IMMERSIVE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         }

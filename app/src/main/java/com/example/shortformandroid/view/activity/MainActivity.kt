@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.shortformandroid.R
 import com.example.shortformandroid.databinding.ActivityMainBinding
-import com.example.shortformandroid.view.fragment.HomeFragment
-import com.example.shortformandroid.view.fragment.PostFragment
-import com.example.shortformandroid.view.fragment.ProfileFragment
-import com.example.shortformandroid.view.fragment.ReelsFragment
+import com.example.shortformandroid.view.fragment.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.bottom_home -> { changeFragment(HomeFragment()) }
                 R.id.bottom_reels -> { changeFragment(ReelsFragment()) }
                 R.id.bottom_add -> { changeFragment(PostFragment()) }
-                R.id.bottom_search -> {}
+                R.id.bottom_search -> { changeFragment(SearchFragment()) }
                 R.id.bottom_profile -> { changeFragment(ProfileFragment()) }
                 else -> { return@setOnItemSelectedListener false }
             }

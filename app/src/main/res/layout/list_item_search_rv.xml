@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="1dp">
+
+    <ImageView
+        android:id="@+id/list_item_search_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <ImageView
+        android:id="@+id/list_item_search_copy"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:tint="@color/main_white"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"/>
+</FrameLayout>

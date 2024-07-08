@@ -14,9 +14,11 @@ import androidx.fragment.app.Fragment
 import com.example.shortformandroid.adapter.PostPhotoAdapter
 import com.example.shortformandroid.databinding.FragmentPostBinding
 import com.example.shortformandroid.model.DataModel
+import com.example.shortformandroid.util.OnAdapterItemSingleClick
 import com.example.shortformandroid.util.RequestPermissionClass
 import com.example.shortformandroid.util.RequestPermissionClass.Companion.PERMISSION_CODE_READ_EXTERNAL_STORAGE
 import com.example.shortformandroid.view.activity.MainActivity
+import kotlinx.coroutines.*
 
 class PostFragment : Fragment() {
     private lateinit var binding: FragmentPostBinding
@@ -26,6 +28,8 @@ class PostFragment : Fragment() {
     private val postPhotoAdapter by lazy { PostPhotoAdapter(requireContext(), postList) }
 
     val perm by lazy { RequestPermissionClass(parentActivity)}
+
+    private var lastIndex = 20
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,15 +55,35 @@ class PostFragment : Fragment() {
 
         binding.postTopPhotoBtn.isActivated = true
 
-       addPhoto()
+        postPhotoAdapter.setOnMoreClickListener(object : OnAdapterItemSingleClick() {
+            override fun onSingleClick(v: View?, position: Int) {
+                Log.i("testtest", "more click position : $position")
+                MainScope().launch {
+                    postList.removeAt(position)
+                    postPhotoAdapter.notifyItemRemoved(position)
+
+                    withContext(Dispatchers.Main) {
+                        delay(700)
+                        addPhoto()
+                    }
+                }
+            }
+        })
+
+        addPhoto()
     }
 
     private fun addPhoto() {
         val storageImgArray = getAllShownImages()
         storageImgArray.forEachIndexed { index, data ->
-            postList.add(DataModel.Post(Uri.parse(data), false, isLast = index == storageImgArray.lastIndex))
-            postPhotoAdapter.notifyItemInserted(index)
+            postList.add(DataModel.Post(data, false, isLast =  false))
+            lastIndex++
         }
+
+        postList.add(DataModel.Post(null, false, isLast =  true))
+        lastIndex++
+        postPhotoAdapter.notifyDataSetChanged()
+        binding.postPhotoRv.smoothScrollToPosition(lastIndex)
     }
 
     @Deprecated("Deprecated in Java")
@@ -79,21 +103,23 @@ class PostFragment : Fragment() {
         }
     }
 
-    private fun getAllShownImages(): ArrayList<String> {
+    private fun getAllShownImages(): MutableList<String> {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val cursor = parentActivity.contentResolver.query(uri, projection, null, null, null)
         val imagePaths = ArrayList<String>()
 
+        Log.d("testtest","lastIndex is $lastIndex")
+
         cursor?.use { c ->
             val columnIndex = c.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
             while (c.moveToNext()) {
                 val imagePath = c.getString(columnIndex)
-                if (imagePaths.size < 20) imagePaths.add(imagePath) else return@use
+                if (imagePaths.size < 100) imagePaths.add(imagePath) else break
             }
         }
 
         cursor?.close()
-        return imagePaths
+        return imagePaths.subList(lastIndex - 1, lastIndex + 19)
     }
 }

@@ -32,7 +32,7 @@ object DataModel {
     )
 
     data class Post(
-        val img: Uri?,
+        val img: String?,
         var isSelected: Boolean = false,
         var isLast: Boolean = false
     )

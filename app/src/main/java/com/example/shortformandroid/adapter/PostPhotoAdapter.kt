@@ -2,6 +2,7 @@ package com.example.shortformandroid.adapter
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -57,36 +58,44 @@ class PostPhotoAdapter(private val context: Context, list: ArrayList<DataModel.P
             if (!dao.isLast) {
                 more.visibility = View.GONE
                 circle.visibility = View.VISIBLE
+                img.visibility = View.VISIBLE
                 dao.img?.let {
-                    if (dao.img.toString().contains("Camera")) {
-                        Glide.with(context).load(it).into(img)
+                    Glide.with(context).load(it).centerCrop().override(itemView.layoutParams.width,itemView.layoutParams.height).error(R.drawable.error).into(img)
 
-                        circle.bringToFront()
+                    circle.bringToFront()
 
-                        circle.setOnClickListener {
-                            if (!dao.isSelected) circle.setImageDrawable(
-                                ResourcesCompat.getDrawable(
-                                    context.resources,
-                                    R.drawable.circle_fill,
-                                    null
-                                )
+                    itemView.setOnClickListener {
+                        if (!dao.isSelected) circle.setImageDrawable(
+                            ResourcesCompat.getDrawable(
+                                context.resources,
+                                R.drawable.circle_fill,
+                                null
                             )
-                            else circle.setImageDrawable(
-                                ResourcesCompat.getDrawable(
-                                    context.resources,
-                                    R.drawable.circle,
-                                    null
-                                )
+                        )
+                        else circle.setImageDrawable(
+                            ResourcesCompat.getDrawable(
+                                context.resources,
+                                R.drawable.circle,
+                                null
                             )
+                        )
 
-                            dao.isSelected = !dao.isSelected
-                        }
+                        dao.isSelected = !dao.isSelected
                     }
                 }
             } else {
-                circle.visibility = View.VISIBLE
-                more.visibility = View.GONE
+                circle.visibility = View.GONE
+                more.visibility = View.VISIBLE
+                img.visibility = View.GONE
+
+                itemView.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION)
+                        kotlin.runCatching { moreOnClickListener.onItemClick(it, position) }
+                            .exceptionOrNull()?.stackTraceToString()
+                }
             }
         }
+
     }
 }

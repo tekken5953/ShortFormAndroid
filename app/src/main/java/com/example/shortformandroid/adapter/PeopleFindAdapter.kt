@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shortformandroid.R
 import com.example.shortformandroid.model.DataModel
+import com.example.shortformandroid.util.OnAdapterItemSingleClick
 import com.example.shortformandroid.view.activity.UserPageActivity
 
 /**

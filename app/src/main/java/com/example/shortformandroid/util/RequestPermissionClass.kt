@@ -1,33 +1,51 @@
 package com.example.shortformandroid.util
 
-import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 
-class RequestPermissionClass(private val context: Context) {
+class RequestPermissionClass(private val activity: Activity) {
+    companion object {
+        const val REQUEST_CODE_PICK_IMAGE = 1
+        const val PERMISSION_CODE_READ_EXTERNAL_STORAGE = 2
+    }
+
+
     private val permissionStorage = arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE
+        if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) android.Manifest.permission.READ_MEDIA_IMAGES
+        else android.Manifest.permission.READ_EXTERNAL_STORAGE
     )
 
     fun requestStorage() {
-        kotlin.runCatching {
-            requestPermissions(
-                context as Activity,
-                permissionStorage,
-                0x000001
-            )
-        }.exceptionOrNull()?.stackTraceToString()
+        showPermissionAlertDialog()
     }
 
-    fun isLocationPermitted(): Boolean {
+    fun isStoragePermissionGranted(): Boolean {
         for (perm in permissionStorage) {
-            if (ContextCompat.checkSelfPermission(context, perm) != PackageManager.PERMISSION_GRANTED)
+            if (ContextCompat.checkSelfPermission(activity, perm) != PackageManager.PERMISSION_GRANTED)
                 return false
         }
 
         return true
+    }
+
+    private fun showPermissionAlertDialog() {
+        AlertDialog.Builder(activity)
+            .setTitle("권한 승인이 필요합니다.")
+            .setMessage("사진을 선택 하시려면 권한이 필요합니다.")
+            .setPositiveButton("허용하기") { _, _ ->
+                requestPermissions(
+                    activity,
+                    permissionStorage,
+                    PERMISSION_CODE_READ_EXTERNAL_STORAGE
+                )
+            }
+            .setNegativeButton("취소하기") { _, _ -> }
+            .create()
+            .show()
     }
 }

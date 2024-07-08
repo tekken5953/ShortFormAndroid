@@ -1,5 +1,7 @@
 package com.example.shortformandroid.model
 
+import android.net.Uri
+
 object DataModel {
     data class Video(
         val profile: Int?,
@@ -30,8 +32,9 @@ object DataModel {
     )
 
     data class Post(
-        val img: Int?,
-        var isSelected: Boolean = false
+        val img: Uri?,
+        var isSelected: Boolean = false,
+        var isLast: Boolean = false
     )
 
     data class SearchFeed(

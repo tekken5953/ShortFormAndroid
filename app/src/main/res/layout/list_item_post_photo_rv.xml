@@ -13,6 +13,7 @@
         android:src="@drawable/circle"
         android:adjustViewBounds="true"
         app:tint="@color/main_white"
+        android:visibility="visible"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"/>
 
@@ -22,6 +23,14 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/feed2"
         android:background="?android:attr/selectableItemBackground"/>
+
+    <ImageView
+        android:id="@+id/list_item_post_feed_more"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/add"
+        app:tint="@color/main_text"
+        android:layout_gravity="center"/>
 </FrameLayout>

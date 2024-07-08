@@ -40,8 +40,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         binding.profilePeopleRv.adapter = peopleAdapter
@@ -52,11 +51,11 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        peopleList.add(DataModel.People(R.drawable.profile1,"User1","followed user2 and 8 people"))
-        peopleList.add(DataModel.People(R.drawable.profile2,"User2","followed user2 and 8 people"))
-        peopleList.add(DataModel.People(R.drawable.profile3,"User3","followed user2 and 8 people"))
-        peopleList.add(DataModel.People(R.drawable.profile4,"User4","followed user2 and 8 people"))
-        peopleList.add(DataModel.People(R.drawable.profile1,"User5","followed user2 and 8 people"))
+        peopleList.add(DataModel.People(R.drawable.profile1,"User1","followed user2 and 8.5K people"))
+        peopleList.add(DataModel.People(R.drawable.profile2,"User2","followed user2 and 152 people"))
+        peopleList.add(DataModel.People(R.drawable.profile3,"User3","followed user2 and 36 people"))
+        peopleList.add(DataModel.People(R.drawable.profile4,"User4","followed user2 and 4 people"))
+        peopleList.add(DataModel.People(R.drawable.profile1,"User5","followed user2 and 10K people"))
 
         peopleAdapter.notifyDataSetChanged()
     }

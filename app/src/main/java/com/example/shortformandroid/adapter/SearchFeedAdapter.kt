@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +14,6 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.example.shortformandroid.R
 import com.example.shortformandroid.model.DataModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 /**
  * @author : Lee Jae Young
@@ -56,7 +51,6 @@ class SearchFeedAdapter(private val context: Context, list: ArrayList<DataModel.
                 .load(dao.img)
                 .placeholder(R.color.main_view)
                 .error(R.drawable.error)
-//                .into(img)
                 .into(object : CustomTarget<Drawable>() {
                     override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
                         val originalWidth = resource.intrinsicWidth
@@ -72,15 +66,15 @@ class SearchFeedAdapter(private val context: Context, list: ArrayList<DataModel.
 
                     override fun onLoadCleared(placeholder: Drawable?) {
                         // 필요시 이미지 로드가 취소되었을 때 처리
-                            Handler(Looper.getMainLooper()).post {
-                                img.setImageDrawable(placeholder)
+                        Handler(Looper.getMainLooper()).post {
+                            img.setImageDrawable(placeholder)
                         }
                     }
 
                     override fun onLoadFailed(errorDrawable: Drawable?) {
                         // 필요시 이미지 로드 실패 시 처리
-                            Handler(Looper.getMainLooper()).post {
-                                img.setImageDrawable(errorDrawable)
+                        Handler(Looper.getMainLooper()).post {
+                            img.setImageDrawable(errorDrawable)
                         }
                     }
                 })

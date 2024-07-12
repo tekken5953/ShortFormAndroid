@@ -2,7 +2,6 @@ package com.example.shortformandroid.view.fragment
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
